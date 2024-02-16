@@ -1,0 +1,199 @@
+html {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+body, p, li, h1, h2, h3, h4, h5, h6 { /* Apply to all text elements */
+    line-height: inherit; /* Inherit line height from html */
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.logoWidth {
+    width: 175px;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .logoWidth {
+        width: 220px;
+    }
+}
+/* Style for the comment modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #666666; /* Body font color */
+    margin-bottom: 60px;
+}
+
+
+/* Heading styles */
+h2 {
+    color: #123662; /* Dark blue accent for headings */
+}
+
+/* Button styles */
+.comment-btn, .attach-file-btn {
+    background-color: #44648D; /* Medium blue for buttons */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+    .comment-btn:hover, .attach-file-btn:hover {
+        background-color: 
+        #123662; /* Darker blue on hover */
+    }
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index:2 ;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay */
+}
+
+.modal-content {
+    background-color: #E2F3F7; /* Lightest blue for modal background */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #98C1D9; /* Light blue for border */
+    width: 80%;
+    z-index: 1;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border: 1px solid #98C1D9; /* Light blue for textarea border */
+    padding: 8px;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #98C1D9; /* Light blue for button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #44648D; /* Medium blue on hover */
+    }
+
+
+
+.logoWidth {
+    width: 220px;
+}
+/* Responsive adjustments */
+@media only screen and (min-width: 992px) {
+    .logoWidth {
+        width: 220px;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+input[type="checkbox"] {
+    background-color: #FFFFFF;
+    border: solid;
+    border-width:thin;
+    border-color: #666666;
+    cursor: pointer;
+}
+
+.card {
+    height: 350px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+.card-body {
+    flex: 1; /* Allows card body to expand and fill the space */
+    overflow: auto; /* Add scroll to the content if it overflows */
+}
+
+.btn-submit {
+    padding-left: 10rem;
+    padding-right: 10rem;
+}

@@ -1,0 +1,102 @@
+﻿@model List<CornerstoneChecklist.Models.ChecklistCategory>
+
+<div class="container p-3" style="border: solid; border-color: #FFFFFF; border-radius: 8px; border-width:thick; background-color:#FFFFFF; box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;">
+    @foreach (var category in Model)
+    {
+        <h2>@category.CategoryName</h2>
+        <div class="row">
+            @foreach (var item in category.Items)
+            {
+                <div class=" col-md-6 col-sm-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @if (item.Action)
+                                {
+                                    <input type="checkbox"  class="form-check-input me-2">
+                                }
+                                @item.Description
+                            </h5>
+                            <div class="mt-2">
+                                @if (item.Action)
+                                {
+
+                                    <form id="commentForm" class="d-flex align-items-center">
+                                        <!-- Comment input field -->
+                                        <input type="text" class="form-control flex-grow-1" placeholder="Add your comment" name="comment" required>
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn" style="margin-top: 0px; padding-left: 5px;"><i class="bi bi-arrow-right-square"></i></button>
+                                    </form>
+
+
+                                    <!-- Hidden file input -->
+                                    <input type="file" id="fileInput" style="display: none;" />
+
+                                    <!-- Visible 'Attach File' button -->
+                                    <button type="button" class="btn btn-outline-secondary attach-file-btn" onclick="document.getElementById('fileInput').click();">
+                                        Attach File
+                                    </button>
+                                    <div id="fileDisplayArea">
+                                        <span id="fileNameDisplay"></span>
+                                        <button type="button" id="deleteFileBtn" class="btn btn-outline-danger" style="display: none;" onclick="deleteAttachedFile();">
+                                            Delete File
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    <div class="text-center">
+    <button class="btn-submit ms-3 attach-file-btn";">Submit</button>
+    </div>
+</div>
+<script>
+    // Get the file input element and the display elements
+    var fileInput = document.getElementById('fileInput');
+    var fileNameDisplay = document.getElementById('fileNameDisplay');
+    var deleteFileBtn = document.getElementById('deleteFileBtn');
+
+    // Event listener for file input change event
+    fileInput.addEventListener('change', function (event) {
+        if (fileInput.files.length > 0) {
+            // Get the file name and display it
+            var fileName = event.target.files[0].name;
+            fileNameDisplay.textContent = 'Selected file: ' + fileName;
+            // Show the delete button
+            deleteFileBtn.style.display = 'inline-block';
+        }
+    });
+
+    // Function to delete the attached file
+    function deleteAttachedFile() {
+        // Clear the file input
+        fileInput.value = '';
+        // Update the UI
+        fileNameDisplay.textContent = '';
+        deleteFileBtn.style.display = 'none';
+    }
+</script>
+<script>
+    // Get the form element
+    var commentForm = document.getElementById('commentForm');
+
+    // Add event listener for the form submit event
+    commentForm.addEventListener('submit', function (event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Get the value of the comment input field
+        var comment = commentForm.elements['comment'].value;
+
+        // You can handle the comment here, e.g., send it to a server or log it to the console
+        console.log('Comment submitted:', comment);
+
+        // Optionally, clear the input field after submission
+        commentForm.reset();
+    });
+</script>
